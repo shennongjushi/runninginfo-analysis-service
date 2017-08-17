@@ -2,6 +2,16 @@
 ## MySQL setting
 ### docker-compose.yml
 ```
+mysql:
+  image: mysql:5.7.19
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: test
+  ports:
+    - "3306:3306"
+```
+command
+```
 docker-compose up
 ```
 ### application.properties
@@ -12,13 +22,13 @@ spring.datasource.password=root
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=create
 ```
-### access mysql
+### access MySQL
 password is root
 ```
 docker exec -it runninginfoanalysisservice_mysql_1 bash
 mysql -u root -p
 ```
-## start the application
+## Start the Application
 ```
 mvn clean install
 cd target
